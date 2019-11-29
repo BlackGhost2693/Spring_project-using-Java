@@ -1,0 +1,26 @@
+body {
+    background-image: url("/images/tesla.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.form-control{
+    text-align:center;
+    width: auto;
+    margin: auto;
+}
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+select :disabled.OldDisabled{
+    color: firebrick;
+    font-weight: bold;
+}
