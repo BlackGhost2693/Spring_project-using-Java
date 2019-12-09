@@ -1,0 +1,22 @@
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    color: white;
+    font-size: 2.3em;
+    text-align: center;
+}
+
+#page-loader .loader-text {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 100%;
+    background-image: url(https://media.giphy.com/media/Th3KqRUuO9wj9vGARm/giphy.gif);
+    height: 220px;
+    background-repeat: no-repeat;
+    background-size: 100px;
+}
