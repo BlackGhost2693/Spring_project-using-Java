@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main>
+    <div class="container">
+        <h1>CarDealer</h1>
+        <div class="container-fluid">
+            <h2 class="text-center text-dark">Details Vehicle</h2>
+                <div class="row col justify-content-center">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="type">Type
+                                <input type="text" class="form-control text-center" id="type" name="type"
+                                       th:value="${vehicle.type}" disabled>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Maker</label>
+                            <input type="text" class="form-control text-center" id="maker" name="maker"
+                                   th:value="${vehicle.maker}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Model</label>
+                            <input type="text" class="form-control text-center" id="model" name="model"
+                                   th:value="${vehicle.model}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="text-center text-white font-weight-bold" for="state">State</label>
+                            <input type="text" class="form-control text-center" id="state" name="state"
+                                   th:value="${vehicle.state}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="year" class="font-weight-bold text-white">Year</label>
+                            <input type="text" class="form-control text-center" id="year" name="year"
+                                   th:value="${vehicle.year}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="mileage" class="font-weight-bold text-white">Mileage</label>
+                            <input type="text" class="form-control text-center" id="mileage" name="mileage"
+                                   th:value="${vehicle.mileage}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="text-center text-white font-weight-bold"
+                                   for="transmission">Transmission</label>
+                            <input type="text" class="form-control text-center" id="transmission"
+                                   name="transmission" th:value="${vehicle.transmission}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="text-center text-white font-weight-bold"
+                                   for="euroStandard">EuroStandard</label>
+                            <input type="text" class="form-control text-center" id="euroStandard"
+                                   name="euroStandard" th:value="${vehicle.euroStandard}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="text-center text-white font-weight-bold" for="fuelType">FuelType</label>
+                            <input type="text" class="form-control text-center" id="fuelType" name="fuelType"
+                                   th:value="${vehicle.fuelType}" disabled>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="text-center text-white font-weight-bold" for="color">Color</label>
+                            <input type="text" class="form-control text-center" id="color" name="color"
+                                   th:value="${vehicle.color}" disabled>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr class="my-3"/>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<th:block>
+    <th:block sec:authorize="isAnonymous()">
+        <nav class="navbar navbar-expand-lg navbar-background">
+            <a class="nav-link text-white active h5" th:href="@{/}">
+                <img src="/images/logo.jpg" class="text-left" width="120" height="60"></a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white active font-weight-bold" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white active font-weight-bold" th:href="@{/users/login}">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white active font-weight-bold" th:href="@{/users/register}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </th:block>
+    <th:block sec:authorize="isAuthenticated()">
+        <nav class="navbar navbar-expand-lg navbar-background">
+            <a class="nav-link text-white active h5" th:href="@{/home}">
+                <img src="/images/logo.jpg" class="text-left" width="120" height="60"></a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <th:block>
+                        <li class="nav-item active">
+                            <div class="dropdown show">
+                                <a class="nav-link text-white active font-weight-bold dropdown-toggle" href="#"
+                                   role="button"
+                                   id="eventDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Event
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="eventDropdown">
+                                    <a class="dropdown-item" th:href="@{/events/add-events}">+Add Event</a>
+                                    <a class="dropdown-item" th:href="@{/events/my-events}">My Event</a>
+                                    <a class="dropdown-item" th:href="@{/events/all-events}">All Event</a>
+                                </div>
+                            </div>
+                        </li>
+                    </th:block>
+                    <th:block>
+                        <li class="nav-item active">
+                            <div class="dropdown show">
+                                <a class="nav-link text-white active font-weight-bold dropdown-toggle" href="#"
+                                   role="button"
+                                   id="vehicleDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Vehicle
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="vehicleDropdown">
+                                    <a class="dropdown-item" th:href="@{/vehicles/add-vehicle}">+Add Vehicle</a>
+                                    <a class="dropdown-item" th:href="@{/vehicles/my-vehicle}">My Vehicle</a>
+                                    <a class="dropdown-item" th:href="@{/vehicles/all-vehicles}">All Vehicle</a>
+                                </div>
+                            </div>
+                        </li>
+                    </th:block>
+                    <th:block>
+                        <li class="nav-item active">
+                            <div class="dropdown show">
+                                <a class="nav-link text-white active font-weight-bold dropdown-toggle" href="#"
+                                   role="button"
+                                   id="offerDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Offer
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="offerDropdown">
+                                    <a class="dropdown-item" th:href="@{/offers/add-offer}">+Add Offer</a>
+                                    <a class="dropdown-item" th:href="@{/offers/my-offer}">My Offer</a>
+                                    <a class="dropdown-item" th:href="@{/offers/all-offer}">All Offer</a>
+                                </div>
+                            </div>
+                        </li>
+                    </th:block>
+                    <th:block>
+                        <li class="nav-item active">
+                            <div class="dropdown show">
+                                <a class="nav-link text-white active font-weight-bold dropdown-toggle" href="#"
+                                   role="button"
+                                   id="profileDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Profile
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                    <a class="dropdown-item" th:href="@{/users/profile}">My Profile</a>
+                                    <a class="dropdown-item" th:href="@{/users/edit-profile}">Edit Profile</a>
+                                </div>
+                            </div>
+                        </li>
+                    </th:block>
+                    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                        <li class="nav-item active">
+                            <div class="dropdown">
+                                <a class="nav-link text-white active font-weight-bold dropdown-toggle" href="#" role="button" id="adminDropdown"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <a class="dropdown-item" th:href="@{/users/all}">All Users</a>
+                                    <a class="dropdown-item" th:href="@{/events/all-events}">All Events</a>
+                                    <a class="dropdown-item" th:href="@{/vehicles/all-vehicles}">All Vehicles</a>
+                                    <a class="dropdown-item" th:href="@{/offers/all-offer}">All Offers</a>
+                                </div>
+                            </div>
+                        </li>
+                    </th:block>
+
+                    <li class="nav-item-active">
+                        <form action="/logout?login" method="post">
+                            <input type="hidden" name="_csrf" value="80417983-fe8b-45c7-963e-31f6915a1560">
+                            <a class="nav-link text-white active font-weight-bold" th:href="@{/logout}">Logout</a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </th:block>
+</th:block>

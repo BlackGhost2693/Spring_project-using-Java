@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+<main class="mt-5">
+    <div class="bg-image-quote-create">
+        <span style="visibility: hidden">....</span>
+        <h1 class="text-center font-weight-bold text-white">Edit Event</h1>
+        <hr class="hr-2 bg-dark w-25">
+        <form class="form w-25 mx-auto" th:action="@{/events/edit-events/{id}(id=${id})}"
+              th:method="patch"><input type="hidden" name="_csrf" value="80417983-fe8b-45c7-963e-31f6915a1560">
+            <div class="form-group text-center text-white">
+                <label for="name" class="mb-1">Username</label>
+                <input type="text" th:value="${model.name}" class="form-control" name="name" id="name"
+                       readonly>
+            </div>
+            <div class="form-group text-center text-white">
+                <label for="date" class="mb-1">Date</label>
+                <input type="date" th:value="${model.date}" class="form-control" id="date" placeholder="Date..."
+                       name="date">
+            </div>
+            <div class="form-group text-center text-white">
+                <label for="description" class="mb-1">Description</label>
+                <input type="text" th:value="${model.description}" class="form-control" id="description" placeholder="Description..."
+                       name="description">
+            </div>
+            <hr class="hr-2 bg-dark">
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark">Edit</button>
+            </div>
+        </form>
+        <span style="visibility: hidden">....</span>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

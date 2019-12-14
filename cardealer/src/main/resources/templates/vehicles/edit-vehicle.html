@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main>
+    <div class="container">
+        <h1>CarDealer</h1>
+        <div class="container-fluid">
+            <h2 class="text-center text-dark">Edit Vehicle</h2>
+            <form class="form" th:action="@{/vehicles/edit-vehicle/{id}(id=${id})}"
+                  th:method="patch"><input type="hidden" name="_csrf" value="80417983-fe8b-45c7-963e-31f6915a1560">
+                <div class="row col justify-content-center">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold" for="type">Type
+                                <select id="type" name="type" class="form-control">
+                                    <option disabled th:text="${vehicle.type}" class="OldDisabled"></option>
+                                    <option value="Car">Car</option>
+                                    <option value="Motor">Motor</option>
+                                    <option value="Truck">Truck</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Maker</label>
+                            <textarea name="maker" id="maker" class="form-control" rows="1"
+                                      th:placeholder="${vehicle.maker}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Model</label>
+                            <textarea name="model" id="model" class="form-control" rows="1"
+                                      th:placeholder="${vehicle.model}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold" for="state">State
+                                    <select id="state" name="state" class="form-control">
+                                        <option disabled th:text="${vehicle.state}" class="OldDisabled"></option>
+                                        <option value="New">New</option>
+                                        <option value="Used">Used</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="year" class="font-weight-bold text-white">Year</label>
+                            <input type="number" step="any" class="form-control text-center" id="year" name="year"
+                                   th:placeholder="${vehicle.year}">
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="mileage" class="font-weight-bold text-white">Mileage</label>
+                            <input type="number" step="any" class="form-control text-center" id="mileage"
+                                   name="mileage" th:placeholder="${vehicle.mileage}">
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold" for="transmission">Transmission
+                                    <select id="transmission" name="transmission" class="form-control">
+                                        <option disabled th:text="${vehicle.transmission}" class="OldDisabled"></option>
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Semi-automatic">Semi-Automatic</option>
+                                        <option value="Manual">Manual</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold" for="euroStandard">EuroStandard
+                                    <select id="euroStandard" name="euroStandard" class="form-control">
+                                        <option disabled th:text="${vehicle.euroStandard}" class="OldDisabled"></option>
+                                        <option value="EURO1">EURO1</option>
+                                        <option value="EURO2">EURO2</option>
+                                        <option value="EURO3">EURO3</option>
+                                        <option value="EURO4">EURO4</option>
+                                        <option value="EURO5">EURO5</option>
+                                        <option value="EURO6">EURO6</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold" for="fuelType">FuelType
+                                    <select id="fuelType" name="fuelType" class="form-control">
+                                        <option disabled th:text="${vehicle.fuelType}" class="OldDisabled"></option>
+                                        <option value="Gasoline">Gasoline</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="Electric">Electric</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold" for="color">Color
+                                    <select id="color" name="color" class="form-control">
+                                        <option disabled th:text="${vehicle.color}" class="OldDisabled"></option>
+                                        <option value="Black">Black</option>
+                                        <option value="Gray">Gray</option>
+                                        <option value="Brown">Brown</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="White">White</option>
+                                        <option value="Orange">Orange</option>
+                                        <option value="Silver">Silver</option>
+                                        <option value="Gold">Gold</option>
+                                        <option value="Green">Green</option>
+                                        <option value="Yellow">Yellow</option>
+                                        <option value="Purple">Purple</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-holder d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr class="my-3"/>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

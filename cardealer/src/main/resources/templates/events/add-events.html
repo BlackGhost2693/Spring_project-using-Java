@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main>
+    <div class="container">
+        <h1>CarDealer</h1>
+        <div class="text-center mb-3">
+            <h4 class="text-white mt-2">Welcome</h4>
+        </div>
+        <div class="container-fluid">
+            <h2 class="text-center text-dark">Add Event</h2>
+            <form class="mx-auto w-15" th:action="@{/events/add-events}" th:method="post" enctype="multipart/form-data">
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                    <div class="form-group">
+                        <label for="name" class="font-weight-bold text-white">Name</label>
+                        <input type="text" step="any" class="form-control text-center" id="name" name="name">
+                    </div>
+                    </div>
+                    <div class="col col-md-3">
+                    <div class="form-group">
+                        <label for="imageUrl" class="font-weight-bold text-white">Image</label>
+                        <input type="file" class="form-control-file" id="imageUrl" name="imageUrl">
+                    </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                            Date: <input type="date" name="date">
+                    </div>
+                </div>
+                    </div>
+                    <div class="col col-md-3">
+                    <div class="form-group">
+                        <label for="description" class="font-weight-bold text-white">Description</label>
+                        <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                </div>
+                <hr class="hr-2 bg-dark w-25">
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Add Event</button>
+                </div>
+            </form>
+        </div>
+        <hr class="my-3"/>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

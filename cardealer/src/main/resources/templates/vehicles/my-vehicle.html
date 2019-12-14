@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main class="container">
+    <h1 class="text-center">My Vehicle</h1>
+    <hr class="hr-3"/>
+    <table class="table bg-blur text-white font-weight-bold">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Maker</th>
+            <th scope="col">Model</th>
+            <th scope="col">State</th>
+            <th scope="col">Year</th>
+            <th scope="col">Mileage</th>
+            <th scope="col">Transmissions</th>
+            <th scope="col">EuroStandard</th>
+            <th scope="col">FuelType</th>
+            <th scope="col">Color</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="vehicle, iter : ${vehicles}">
+            <tr>
+                <th scope="col" th:text="${iter.index + 1}"></th>
+                <th scope="col" th:text="${vehicle.type}"></th>
+                <th scope="col" th:text="${vehicle.maker}"></th>
+                <th scope="col" th:text="${vehicle.model}"></th>
+                <th scope="col" th:text="${vehicle.state}"></th>
+                <th scope="col" th:text="${vehicle.year}"></th>
+                <th scope="col" th:text="${vehicle.mileage}"></th>
+                <th scope="col" th:text="${vehicle.transmission}"></th>
+                <th scope="col" th:text="${vehicle.euroStandard}"></th>
+                <th scope="col" th:text="${vehicle.fuelType}"></th>
+                <th scope="col" th:text="${vehicle.color}"></th>
+
+                <th scope="col">
+                    <a th:href="@{/vehicles/edit-vehicle/{id}(id=${vehicle.id})}" class="btn btn-success font-weight-bold text-white">Edit</a>
+                </th>
+                <th scope="col">
+                    <a th:href="@{/vehicles/delete-vehicle/{id}(id=${vehicle.id})}" class="btn btn-danger font-weight-bold text-white">Delete</a>
+                </th>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</main>
+<th:block th:include="~{fragments/footer}" />
+</body>
+</html>

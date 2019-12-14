@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+<main class="mt-5">
+    <div class="bg-image-quote-all text-center">
+        <span style="visibility: hidden">....</span>
+        <div class="text-center mt-5">
+            <img th:src="${model.imageUrl}" width="200" height="200" alt="imageUrl">
+        </div>
+        <div class="row col justify-content-center">
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center">
+                    <label class="text-center text-white font-weight-bold" for="name">Name
+                        <input type="text" class="form-control text-center" id="name" name="name"
+                               th:value="${model.name}" disabled>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row col justify-content-center">
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center">
+                    <label class="text-center text-white font-weight-bold" for="date">Date
+                        <input type="date" class="form-control text-center" id="date" name="date"
+                               th:value="${model.date}" disabled>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row col justify-content-center">
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center">
+                    <label class="text-center text-white font-weight-bold" for="description">Description
+                        <input type="text" class="form-control text-center" id="description" name="description"
+                               th:value="${model.description}" disabled>
+                    </label>
+                </div>
+            </div>
+        <span style="visibility: hidden">....</span>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

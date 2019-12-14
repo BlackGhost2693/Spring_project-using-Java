@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main class="container">
+    <h1 class="text-center">All Events</h1>
+    <hr class="hr-3"/>
+    <table class="table bg-blur text-white font-weight-bold">
+        <thead>
+        <tr class="row mx-auto">
+            <th class="col-md-1 text-center">№</th>
+            <th class="col-md-2 text-center">Name</th>
+            <th class="col-md-2 text-center">Image</th>
+            <th class="col-md-2 text-center">Date</th>
+            <th class="col-md-2 text-center">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="event, iter : ${events}">
+            <tr class="row mx-auto">
+                <th class="col-md-1 text-center" th:text="${iter.index + 1}"></th>
+                <td class="col-md-2 text-center" th:text="${event.name}"></td>
+                <td class="col-md-2">
+                    <div class="text-center"><img th:src="${event.imageUrl}" width="60" height="60" alt="Event"></div>
+                </td>
+                <td class="col-md-2 text-center" th:text="${event.date}"></td>
+                <td class="col-md-2 text-center" th:text="${event.description}"></td>
+                <td class="col-md-1 text-center">
+                    <a th:href="@{/events/detail-events/{id}(id=${event.id})}" class="btn btn-success font-weight-bold text-white">View</a>
+                </td>
+                <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                    <td class="col-md-2 text-center">
+                        <a th:href="@{/events/delete-events/{id}(id=${event.id})}"
+                           class="btn btn-danger font-weight-bold text-white">Delete</a>
+                    </td>
+                </th:block>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

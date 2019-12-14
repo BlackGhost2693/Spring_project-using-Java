@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<header>
+    <th:block th:include="~{fragments/header}"/>
+<main>
+    <main class="mt-3">
+        <h1 class="text-center text-white">Register</h1>
+        <hr class="hr-2 bg-dark w-25">
+        <form class="form w-25 mx-auto" th:action="@{/users/register}" th:method="post">
+            <div class="form-group">
+                <label for="username" class="text-white d-flex justify-content-center">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username..." name="username">
+            </div>
+            <div class="form-group">
+                <label for="password" class="text-white d-flex justify-content-center">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password..." name="password" >
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword" class="text-white d-flex justify-content-center">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password..." name="confirmPassword">
+
+            </div>
+            <div class="form-group">
+                <label for="email" class="text-white d-flex justify-content-center">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email..." name="email">
+            </div>
+            <hr class="hr-2 bg-dark">
+            <div class="button-holder d-flex justify-content-center">
+                <button class="btn btn-info text-white mb-3" type="submit">Register</button>
+            </div>
+        </form>
+    </main>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

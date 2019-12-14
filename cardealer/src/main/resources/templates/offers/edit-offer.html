@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main>
+    <div class="container">
+        <h1>CarDealer</h1>
+        <div class="container-fluid">
+            <h2 class="text-center text-dark">Edit Offer</h2>
+            <form class="form text-white" th:action="@{/offers/edit-offer/{id}(id=${id})}"
+                  th:method="patch"><input type="hidden" name="_csrf" value="80417983-fe8b-45c7-963e-31f6915a1560">
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Created On</label>
+                            <input type="date" class="form-control text-center" id="createdOn" name="createdOn"
+                                   th:value="${offer.createdOn}">
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Valid Until</label>
+                            <input type="date" class="form-control text-center" id="validUntil" name="validUntil"
+                                   th:value="${offer.validUntil}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold text-white">Price</label>
+                            <input type="number" class="form-control text-center" id="price" name="price"
+                                   th:value="${offer.price}">
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label class="font-weight-bold text-white">Description</label>
+                            <input type="text" class="form-control text-center" id="description" name="description"
+                                   th:value="${offer.description}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="button-holder d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">Edit</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <hr class="my-3"/>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+</body>
+</html>

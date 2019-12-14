@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/head}"/>
+<link rel="stylesheet" href="/css/loader.css">
+<body>
+<th:block th:include="~{fragments/header}"/>
+
+<main>
+    <div class="container">
+        <h1>CarDealer</h1>
+
+        <div class="container-fluid">
+            <h2 class="text-center text-dark">Add offer</h2>
+            <form class="mx-auto w-15" th:action="@{/offers/add-offer}" th:method="post">
+                <div class="row col justify-content-center">
+                    <div class="form-group">
+                        <div class="label-holder d-flex justify-content-center">
+                            <label class="text-center text-white font-weight-bold">Vehicle
+                                <select multiple="" class="form-control" id="vehicle" name="vehicle" required>
+                                    <option selected="" disabled="">--- Select Vehicle ---</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold">createdOn
+                                    <div class="label-holder d-flex justify-content-center">
+                                        <input type="date" required name="createdOn">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group ">
+                            <div class="label-holder d-flex justify-content-center">
+                                <label class="text-center text-white font-weight-bold">validUntil
+                                    <div class="label-holder d-flex justify-content-center">
+                                        <input type="date" required name="validUntil">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col justify-content-center">
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="price" class="font-weight-bold text-white">Price</label>
+                            <input type="number" step="any" min="0" required class="form-control text-center" id="price" name="price">
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="form-group">
+                            <label for="description" class="font-weight-bold text-white">Description</label>
+                            <textarea name="description" required id="description" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-4"></div>
+                    <div class="button-holder d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success">Add Offer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr class="my-3"/>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}"/>
+<th:block th:include="~{fragments/loader}"/>
+</body>
+<script src="/js/loader.js"></script>
+<script>
+    loader.show();
+    fetch('/vehicles/fetch')
+        .then((response) => response.json())
+        .then((json) => {
+            json.forEach((vehicle) => $('#vehicle')
+                .append(`<option value="${vehicle.id}">${vehicle.type}, ${vehicle.maker}, ${vehicle.model},
+                    ${vehicle.state}, ${vehicle.year}, ${vehicle.mileage}, ${vehicle.transmission},
+                           ${vehicle.euroStandard}, ${vehicle.fuelType}, ${vehicle.color}</option>`));
+            loader.hide();
+        })
+        .catch((err) => console.log(err));
+
+</script>
+</html>
